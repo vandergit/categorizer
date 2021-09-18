@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categorizer</title>
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/container.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/styles/categories-section.css"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/styles/images-container.css"
+      type="text/css"
+    />
+
+    <!-- google-fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-awesome-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+  <body>
+      <nav class="navbar" id="scrollingNav">
+        <div class="name-icons">
+          <p class="logo">Categorizer</p>
+        </div>
+        <div class="user-settings">
+            <i class="fas fa-user-cog user-icon"></i>
+            <p class="user-icon-label">User Settings</p>
+        </div>
+      </nav>
+
+      <section class="item-search-container">
+        <form method="POST" action="/categories" >
+          <input
+          id="text"
+          type="text"
+          name="text"
+          placeholder="The Bee Movie"
+          class="search-form"
+        />
+        <button type="submit" class="categorize-button">
+          <i class="fas fa-search search-icon"></i>
+        </button>
+      </form>
+      </section>
+
+    <section class="categories-container">
+      <div class="category-section">
+        <div class="name-icon">
+          <i class="fas fa-tv"></i>
+          <p class="category-name">Film / Series</p>
+        </div>
+      </div>
+      <div class="category-section">
+        <div class="name-icon">
+          <i class="fas fa-utensils"></i>
+          <p class="category-name">Places to eat</p>
+        </div>
+      </div>
+      <div class="category-section">
+        <div class="name-icon">
+          <i class="fas fa-book"></i>
+          <p class="category-name">Books</p>
+        </div>
+      </div>
+      <div class="category-section">
+        <div class="name-icon">
+          <i class="fas fa-store"></i>
+          <p class="category-name">Things to buy</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
