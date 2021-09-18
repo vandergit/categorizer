@@ -5,5 +5,5 @@ CREATE TABLE "activities" (
   "user_id" INTEGER NOT NULL REFERENCES "users" ("id") ON DELETE CASCADE,
   "category_id" INTEGER NOT NULL REFERENCES "categories" ("id") ON DELETE CASCADE,
   "description" TEXT,
-  "created_at" TIMESTAMP DEFAULT NOW
+  "created_at" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

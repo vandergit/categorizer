@@ -2,5 +2,5 @@ DROP TABLE IF EXISTS categories CASCADE;
 
 CREATE TABLE "categories" (
   "id" SERIAL UNIQUE PRIMARY KEY NOT NULL,
-  "description" VARCHAR[255]
+  "description" VARCHAR(255)
 );

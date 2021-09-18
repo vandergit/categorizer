@@ -1,4 +1,4 @@
-insert into categories (id, description) values (1, 'Films-Series');
-insert into categories (id, description) values (2, 'Restaurants');
-insert into categories (id, description) values (3, 'Books');
-insert into categories (id, description) values (4, 'Products');
+insert into categories (description) values ('Films-Series');
+insert into categories (description) values ('Restaurants');
+insert into categories (description) values ('Books');
+insert into categories (description) values ('Products');
