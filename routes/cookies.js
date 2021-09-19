@@ -4,24 +4,22 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
+const express = require("express");
 
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT id FROM users LIMIT 1`;
     console.log(query);
     db.query(query)
-    .then(data => {
-      const cookies = data.rows;
-        res.cookie('user_id', cookies[0].id);
-        res.redirect('categories');
+      .then((data) => {
+        const cookies = data.rows;
+        res.cookie("user_id", cookies[0].id);
+        res.redirect("categories");
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
   return router;
