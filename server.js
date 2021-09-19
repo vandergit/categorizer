@@ -62,6 +62,10 @@ app.get('/categories', (req, res) => {
   res.render('categories');
 });
 
+app.get('/settings', (req, res) => {
+  res.render('settings');
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
