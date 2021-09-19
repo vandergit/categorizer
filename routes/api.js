@@ -46,6 +46,7 @@
 //   });
 // }
 //quickstart();
+const key = "";
 const axios = require('axios');
 async function isMovie(text) {
   // const request = require('request-promise-native');
@@ -72,7 +73,7 @@ isMovie('how i met your mother');
 async function isCafe(name) {
   const config = {
     method: 'get',
-    url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=AIzaSyC2OwhoJu3Uy4Zd3nToX2V-bVBiZm8bleM`,
+    url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${key}`,
     headers: { }
   };
 
@@ -110,7 +111,7 @@ isProduct('olive oil');
 async function isBook(input) {
   const config = {
     method: 'get',
-    url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=AIzaSyC2OwhoJu3Uy4Zd3nToX2V-bVBiZm8bleM`,
+    url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${key}`,
     headers: { }
   };
 
