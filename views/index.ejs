@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categorizer</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/container.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="/styles/images-container.css"
+      type="text/css"
+    />
+
+    <!-- google-fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font-awesome-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
   <body>
-    <h1>Hello World!</h1>
+    
+    <header><%- include('partials/header') %></header>
+
+    <section class="welcome-container">
+      <div class="left-side-container">
+        <div class="left-side-content">
+          <h1 class="heading">
+            Welcome to the place where your worries disappear
+          </h1>
+          <p class="message">
+            Categorizer takes the weight off your shoulders and let’s us make
+            your life easier. Just input an item and we’ll categorize it for you
+            in one of our four categories.
+          </p>
+          <button class="inner-sign-up-button">
+            <a href="/signUp" class="sign-up">Sign Up</a>
+          </button>
+        </div>
+      </div>
+
+      <div class="right-side-container">
+        <i class="fas fa-clipboard-list checklist"></i>
+      </div>
+    </section>
+
+    <section class="images-container">
+      <img class="images" src="../images/movies-shows.png" />
+      <img class="images" src="../images/restaurant.jpg" />
+      <img class="images" src="../images/books.jpeg" />
+      <img class="images" src="../images/things-to-buy.jpeg" />
+    </section>
   </body>
 </html>

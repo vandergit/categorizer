@@ -40,6 +40,7 @@ const widgetsRoutes = require("./routes/widgets");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
+app.use("/api/express-server", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
@@ -48,6 +49,15 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get('/login', (req, res) => {
+  // req.session.user_id = user.id;
+  res.redirect('categories');
+});
+
+app.get('/categories', (req, res) => {
+  res.render('categories');
 });
 
 app.listen(PORT, () => {
