@@ -3,5 +3,4 @@ public/styles
 .env
 *.log
 *.sqlite3
-.DS-Store
-*.current
+.DS_Store
