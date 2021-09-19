@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "valiant-cycle-326400",
+  "private_key_id": "aa711b921ed0c1c7024cef077191fdc3d36edb08",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCRYn1Mtaax3c3V\nUX/JQI0NJxhybcZESHT7+dauo5jt3BVb80scbflHx6lOpBAczRcOmIOyNyCm+bRK\nuszPQ5QxTmE0inI1dEyv3KvOT3AoW+NasVUJVpT8gyGjgDH2mk38hOTaIdSrCNSU\n+tWJg4jcwIkpMUc5WcAYAw0NaOfdWfz9omXUrYzMQ27K2MIZsL2yW1bP2V1wENXs\nw2mgjPhm5TRZCTK3doEljxHeuCfHt8MACdkcn5cG1T4KOfOIky8FP3Mha2LIqs3O\nsBqfcX7OQ2lIBzag2Bej5EIQi04kSDtVjtWAN2ERMTlpBLAijO5RK2hC4GvQQwvt\noQuJjcllAgMBAAECggEAAyRuUeChPDnvj3tF+EsZYV3ldN+zh9lLEgEp5zdpAEcf\n/Q9KodAssaT6n1UDdiPmqi2Ytxri7Uj7YRwdfiNXSiOIDVMqucYMPEbYPcrQwUaP\nKPApRtzktnp9GSQVsF9QbTNQIPjXOGUl9xxeziyWIjNVI5tJj09FzB8QwqfwTwPx\nDkpfsUtLVuLTp+0k71+9UV0DxbCFeqk/wXrwwKtrtJJpj32Mamf2Rwj4nnM6tbSO\ndqY6BwrpBDmAdSqVOEeZS0tBHHfrMMOl9B+gTzMAf16LAkbyVbjtzQ/nq2QOa+rb\nRfEwIFGZUdi1GmC39GLW3Q1hoPtgbax80jUs8m121wKBgQDLu/UndAdhpDQ987M8\nAbruhGs69dHkzWKigiTWL8HhElzEuBQPdD5E/tnNTQ1cjUdWAcCqMjqpnsZpC2y2\nT9pXeDBNXPrCWJ+GZu65QjI4E5xaWE909zFoauTM7AhWmBfijrXVU2VZ6B4gNijF\n/zDz/GR5R0sR7HN+CQAgX7wI9wKBgQC2rny4sxAkE1YHOjidlbb40Ya4ajJF6JSk\nmcD2XmsOqBkVjcfh8Bt3VwH1bLxix6EZ6XfHZpCnFEmgMU7ALue6M8VtkO1j3GtL\nyLN5+YUXfgLjxm3/5IU+5wA6n7oIRQXAR4hLLPXglcbuWdaF5+/ywp1shb+RLusG\nlWFddGKlgwKBgCyDaaHwIPi9dsieaWfP/PbGKeOc9/okwcs94iyGDLdPWsOEcKWb\nwUsz34SStDunhpGNGnpVNSoATdt/qoX+1nbMBMmyaftyf5BPBxOlGfHUnxHCP8IP\njFUDHfCEFaJN4tIWWjY83WUSaRqimq///MMiPxWcdRN6dRVxg/yOzjerAoGADSja\noS98/SxLaS/ffjKXwKrPSp+TyYdslcLhrJ22lpKzY+MXwAXc5Kbm5DgWBgOdblFs\nKHgR+Yczmo+SvbNjS/2IvlDPWP8613W4wBOia8PPD3tu1x0uIA7h7FcvPoNCW8yL\nW+b8O1ZuwyLDmlfP6CvuzS+BUkMP+SRvpBzLMmMCgYEAj2g0v56N0qm/phZmmNmF\nfESY1Kqqa2dWHGFJoKMhLOjmGjGojXhhbnMl2WOdj/nHYwYwt2fgg8xQMaUQEHd8\nFHoLWBrY8OBpIAdu81A2b3tRBZgjHiPEB7MHnfP8uHJ+QhNOdo/Hbr6FA483ySAU\neZ6fX1fb0X9Du2yZhK3cSy0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-acc-lang@valiant-cycle-326400.iam.gserviceaccount.com",
+  "client_id": "117832457563687189068",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-acc-lang%40valiant-cycle-326400.iam.gserviceaccount.com"
+}
