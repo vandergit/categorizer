@@ -1,0 +1,66 @@
+.welcome-container {
+  background: linear-gradient(119deg, #E8DC72, #E2747A, #77C0E0);
+  background-size: 600% 600%;
+  animation: GradientBackground 15s ease infinite;
+  height: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+.left-side-container{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.left-side-content {
+  width: 80%;
+  margin-left: auto;
+}
+
+.heading {
+  font-size:35px;
+}
+
+.message {
+  font-size:20px;
+  line-height: 25px;
+}
+
+.inner-sign-up-button {
+  margin-left:10px;
+  background-color: #4500FF;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 9px;
+}
+
+.right-side-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  font-size: 200px;
+}
+
+.checklist {
+  margin-top: 100px;
+}
+
+@keyframes GradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+};

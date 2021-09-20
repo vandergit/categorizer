@@ -1,0 +1,98 @@
+.navbar {
+  height: 100px;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  background-color: #F9F8FD
+}
+
+.name-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 400px;
+  justify-content: space-evenly;
+}
+
+.logo {
+  padding: 0;
+  margin: 0;
+  font-size:30px
+}
+
+.icons {
+  size: 40px;
+  font-size: 25px;
+}
+
+.login-signup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+  justify-content: space-evenly;
+}
+
+a {
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.login {
+color: #716868;
+}
+
+.login:hover {
+  color:#000
+}
+
+.sign-up {
+  color: #EEE;
+}
+
+.sign-up-button {
+  background-color: #4500FF;
+  border-radius: 20px;
+  border: none;
+  padding: 5px 9px;
+}
+
+/* category/settings page */
+
+.user-settings {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-right: 25px;
+    text-decoration: none;
+    color: #000;
+    font-size:20px;
+}
+
+.user-icon {
+  font-size: 35px;
+}
+
+.user-icon-label {
+margin: 0;
+}
+
+.logo-categories {
+  width: 400px;
+  font-size:30px;
+  margin-left: 20px;
+}
+
+/* settings */
+
+.icons-settings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
+  justify-content: space-evenly;
+  color: #000;
+}
