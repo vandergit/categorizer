@@ -46,20 +46,15 @@
 //   });
 // }
 //quickstart();
+
 require("dotenv").config({path:'../.env'});
-const key = "";
 const axios = require('axios');
 async function isMovie(text) {
-  // const request = require('request-promise-native');
-  // request(`https://www.omdbapi.com/?t=${text}&apikey=7a022951`)
-  //   .then(res=>console.log(res["Type"]))
-  //   .catch(err=> console.log('ERRRRR:',err));
   const config = {
     method: 'get',
     url: `https://www.omdbapi.com/?t=${text}&apikey=e95cd0d1`,
     headers: { }
   };
-
   axios(config)
     .then(response=> {
       console.log(response.data["Type"]);
@@ -67,7 +62,6 @@ async function isMovie(text) {
     .catch(error=> {
       console.log(error);
     });
-
 }
 isMovie('how i met your mother');
 
@@ -77,7 +71,6 @@ async function isCafe(name) {
     url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${process.env.API_G}`,
     headers: { }
   };
-
   axios(config)
     .then(response => {
       console.log(JSON.stringify(response.data.results[0].types));
@@ -89,16 +82,11 @@ async function isCafe(name) {
 isCafe('wendys');
 
 async function isProduct(input) {
-  // const request = require('request-promise-native');
-  // request(`https://api.wolframalpha.com/v2/query?appid=GJTP2W-2HLU9U486L&output=json&input=${input}`)
-  //   .then(res=>console.log(res))
-  //   .catch(err=> console.log('ERRRRR:',err));
   const config = {
     method: 'get',
     url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
     headers: { }
   };
-
   axios(config)
     .then(response=> {
       console.log(response["data"]["queryresult"]["datatypes"]);
@@ -115,7 +103,6 @@ async function isBook(input) {
     url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${process.env.API_G}`,
     headers: { }
   };
-
   axios(config)
     .then(response => {
       console.log(JSON.stringify(response.data.items[0].volumeInfo.printType));
