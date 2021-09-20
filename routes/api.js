@@ -46,6 +46,7 @@
 //   });
 // }
 //quickstart();
+require("dotenv").config({path:'../.env'});
 const key = "";
 const axios = require('axios');
 async function isMovie(text) {
@@ -55,7 +56,7 @@ async function isMovie(text) {
   //   .catch(err=> console.log('ERRRRR:',err));
   const config = {
     method: 'get',
-    url: `https://www.omdbapi.com/?t=${text}&apikey=7a022951`,
+    url: `https://www.omdbapi.com/?t=${text}&apikey=e95cd0d1`,
     headers: { }
   };
 
@@ -73,7 +74,7 @@ isMovie('how i met your mother');
 async function isCafe(name) {
   const config = {
     method: 'get',
-    url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${key}`,
+    url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${process.env.API_G}`,
     headers: { }
   };
 
@@ -94,7 +95,7 @@ async function isProduct(input) {
   //   .catch(err=> console.log('ERRRRR:',err));
   const config = {
     method: 'get',
-    url: `https://api.wolframalpha.com/v2/query?appid=GJTP2W-2HLU9U486L&output=json&input=${input}`,
+    url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
     headers: { }
   };
 
@@ -111,7 +112,7 @@ isProduct('olive oil');
 async function isBook(input) {
   const config = {
     method: 'get',
-    url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${key}`,
+    url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${process.env.API_G}`,
     headers: { }
   };
 
