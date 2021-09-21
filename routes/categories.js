@@ -42,64 +42,63 @@ module.exports = (db) => {
       isCafe(text),
       isBook(text)
     ])
-      .then(results=>{
-        for (let result of results) {
-          if (result === "ExpandedFood") {
-            db.query(
-              `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-              [text]
-            )
-              .then((data) => {
-                console.log("Food-success");
-                result.json({ data });
-              })
-              .catch((err) => console.log(err.massage));
-          }
-          if (result === "movie" || result === "series") {
-            db.query(
-              `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`,
-              [text]
-            )
-              .then((data) => {
-                console.log("Movie-success");
-                result.json({ data });
-              })
-              .catch((err) => console.log(err.massage));
-          }
-          if (result.includes("restaurant") || result.includes("cafe")) {
-            db.query(
-              `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
-              [text]
-            )
-              .then((data) => {
-                console.log("Restaurant-success");
-                result.json({ data });
-              })
-              .catch((err) => console.log(err.massage));
-          }
-          if (result === "Book") {
-            db.query(
-              `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
-              [text]
-            )
-              .then((data) => {
-                console.log("Book-success");
-                result.json({ data });
-              })
-              .catch((err) => console.log(err.massage));
-          } else {
-            db.query(
-              `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-              [text]
-            )
-              .then((data) => {
-                console.log("success");
-                result.json({ data });
-              })
-              .catch((err) => console.log(err.massage));
-          }
+      .then(result=>{
+        if (result[0] === "ExpandedFood") {
+          db.query(
+            `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
+            [text]
+          )
+            .then((data) => {
+              console.log("Food-success");
+              result.json({ data });
+            })
+            .catch((err) => console.log(err.massage));
 
+        } else if (result[1] === "movie" || result[1] === "series") {
+          db.query(
+            `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`,
+            [text]
+          )
+            .then((data) => {
+              console.log("Movie-success");
+              result.json({ data });
+            })
+            .catch((err) => console.log(err.massage));
+
+        } else if (result[2].includes("restaurant") || result[2].includes("cafe")) {
+          db.query(
+            `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
+            [text]
+          )
+            .then((data) => {
+              console.log("Restaurant-success");
+              result.json({ data });
+            })
+            .catch((err) => console.log(err.massage));
+
+        } else if (result[3] === "Book") {
+          db.query(
+            `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
+            [text]
+          )
+            .then((data) => {
+              console.log("Book-success");
+              result.json({ data });
+            })
+            .catch((err) => console.log(err.massage));
+
+        } else {
+          db.query(
+            `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
+            [text]
+          )
+            .then((data) => {
+              console.log("success");
+              result.json({ data });
+            })
+            .catch((err) => console.log(err.massage));
         }
+
         res.redirect("/categories");
       })
       .catch((err) => res.status(500).send(err));
