@@ -1,5 +1,5 @@
 const { isMovie, isBook, isProduct, isCafe } = require("./api");
-console.log("I am here", isProduct);
+// console.log("I am here", isProduct);
 //console.log(isProduct);
 
 const express = require("express");
@@ -20,7 +20,6 @@ module.exports = (db) => {
       getActivities(4),
     ])
       .then((data) => {
-        console.log(data);
         const [movies, restaurants, books, things] = data;
         const templateVars = {
           movies: movies.rows,
@@ -103,9 +102,15 @@ module.exports = (db) => {
       })
       .catch((err) => res.status(500).send(err));
 
+
+  });
+  router.put('/edit', (req, res) => {
+    console.log('I am edit =>>>>>>>>>');
   });
   return router;
 };
+
+
 
 // isProduct(text).then((res) => {
 //   if (res === "ExpandedFood") {

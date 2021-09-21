@@ -78,7 +78,7 @@
         </div>
         <ul class="list-items movies"> 
           <% for (let movie of movies) { %>
-            <li class="draggable delete" draggable="true"><%= movie.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete" draggable="true" id="movie"><%= movie.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -89,7 +89,7 @@
         </div>
         <ul class="list-items restaurants">
           <% for (let restaurant of restaurants) { %>
-            <li class="draggable delete" draggable="true"><%= restaurant.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete" draggable="true" id="restaurant"><%= restaurant.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -100,7 +100,7 @@
         </div>
         <ul class="list-items books">
           <% for (let book of books) { %>
-            <li class="draggable delete" draggable="true"><%= book.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete" draggable="true" id="book"><%= book.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -111,7 +111,7 @@
         </div>
         <ul class="list-items things">
           <% for (let thing of things) { %>
-            <li class="draggable delete" draggable="true"><%= thing.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete" draggable="true" id="thing"><%= thing.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
