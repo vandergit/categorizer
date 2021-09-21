@@ -50,20 +50,26 @@
     </nav>
 
     <section class="item-search-container">
-      <form method="POST" action="/categories">
-        <input
-          id="text"
-          type="text"
-          name="text"
-          placeholder="The Bee Movie"
-          class="search-form"
-        />
-        <button type="submit" class="categorize-button">
-          <i class="fas fa-search search-icon"></i>
-        </button>
-      </form>
-    </section>
+      <div class="search-container">
+        <form method="POST" action="/categories">
+          <input
+            id="text"
+            type="text"
+            name="text"
+            placeholder="The Bee Movie"
+            class="search-form"
+          />
+          <button type="submit" class="categorize-button">
+            <i class="fas fa-search search-icon"></i>
+          </button>
+        </form>
+      </div>
+      <div class="trash-icon">
+        <i class="fas fa-trash"></i>
+      </div>
 
+    </section>
+    
     <section class="categories-container">
       <div class="category-section">
         <div class="name-icon">
@@ -72,7 +78,7 @@
         </div>
         <ul class="list-items movies"> 
           <% for (let movie of movies) { %>
-            <li><%= movie.description %> </li>
+            <li class="draggable delete" draggable="true"><%= movie.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -83,7 +89,7 @@
         </div>
         <ul class="list-items restaurants">
           <% for (let restaurant of restaurants) { %>
-            <li><%= restaurant.description %> </li>
+            <li class="draggable delete" draggable="true"><%= restaurant.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -94,7 +100,7 @@
         </div>
         <ul class="list-items books">
           <% for (let book of books) { %>
-            <li><%= book.description %> </li>
+            <li class="draggable delete" draggable="true"><%= book.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>
@@ -105,7 +111,7 @@
         </div>
         <ul class="list-items things">
           <% for (let thing of things) { %>
-            <li><%= thing.description %> </li>
+            <li class="draggable delete" draggable="true"><%= thing.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
           <% } %> 
         </ul>
       </div>

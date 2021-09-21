@@ -1,22 +1,32 @@
-// /* eslint-disable no-undef */
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/activities",
-//   }).done((activities) => {
-//     for (let activity of activities) {
-//       if (activity.category_id === 1) {
-//         $('li').text(activity.description).appendTo('.movies');
-//       }
-//       if (activity.category_id === 2) {
-//         $('li').text(activity.description).appendTo('.restaurants');
-//       }
-//       if (activity.category_id === 3) {
-//         $('li').text(activity.description).appendTo('.books');
-//       }
-//       if (activity.category_id === 4) {
-//         $('li').text(activity.description).appendTo('.things');
-//       }
-//     }
-//   });
-// });
+const draggables = document.querySelectorAll(".draggable");
+const ulContainers = document.querySelectorAll(".list-items");
+
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () => {
+    draggable.classList.add("dragging");
+  });
+
+  draggable.addEventListener("dragend", () => {
+    draggable.classList.remove("dragging");
+  });
+});
+
+ulContainers.forEach((ulContainer) => {
+  ulContainer.addEventListener("dragover", (e) => {
+    e.preventDefault;
+    const draggable = document.querySelector(".dragging");
+    ulContainer.appendChild(draggable);
+  });
+});
+
+const allListItems = document.querySelectorAll(".delete");
+for (let index = 0; index < allListItems.length; index++) {
+  allListItems[index].addEventListener("click", function() {
+    this.classList.toggle("active");
+  });
+  allListItems[index]
+    .querySelector("#delete")
+    .addEventListener("click", function() {
+      this.closest(".delete").remove();
+    });
+}
