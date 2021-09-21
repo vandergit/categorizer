@@ -57,16 +57,16 @@ async function isMovie(text) {
     headers: { }
   };
 
-  axios(config)
+  return axios(config)
     .then(response=> {
-      console.log(response.data["Type"]);
+      return response.data["Type"];
     })
     .catch(error=> {
       console.log(error);
     });
 
 }
-isMovie('jumanji');
+//isMovie('jumanji');
 
 async function isCafe(name) {
   const config = {
@@ -83,7 +83,7 @@ async function isCafe(name) {
       console.log(error);
     });
 }
-isCafe('wendys');
+//isCafe('wendys');
 
 async function isProduct(input) {
   const config = {
@@ -92,15 +92,16 @@ async function isProduct(input) {
     headers: { }
   };
 
-  axios(config)
+  return axios(config)
     .then(response=> {
-      console.log(response["data"]["queryresult"]["datatypes"]);
+      //console.log(response["data"]["queryresult"]["datatypes"]);
+      return response["data"]["queryresult"]["datatypes"];
     })
     .catch(error=> {
       console.log(error);
     });
 }
-isProduct('milk');
+//isProduct('milk');
 
 async function isBook(input) {
   const config = {
@@ -117,7 +118,7 @@ async function isBook(input) {
       console.log(error);
     });
 }
-isBook('War and peace');
+//isBook('War and peace');
 
 module.exports = {
   isBook,
