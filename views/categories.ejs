@@ -82,8 +82,8 @@
           <p class="category-name">Places to eat</p>
         </div>
         <ul class="list-items restaurants">
-          <% for (let movie of movies) { %>
-            <li><%= restaurants.description %> </li>
+          <% for (let restaurant of restaurants) { %>
+            <li><%= restaurant.description %> </li>
           <% } %> 
         </ul>
       </div>
@@ -93,8 +93,8 @@
           <p class="category-name">Books</p>
         </div>
         <ul class="list-items books">
-          <% for (let movie of movies) { %>
-            <li><%= books.description %> </li>
+          <% for (let book of books) { %>
+            <li><%= book.description %> </li>
           <% } %> 
         </ul>
       </div>
@@ -104,8 +104,8 @@
           <p class="category-name">Things to buy</p>
         </div>
         <ul class="list-items things">
-          <% for (let movie of movies) { %>
-            <li><%= things.description %> </li>
+          <% for (let thing of things) { %>
+            <li><%= thing.description %> </li>
           <% } %> 
         </ul>
       </div>
