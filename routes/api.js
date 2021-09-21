@@ -55,15 +55,16 @@ async function isMovie(text) {
     url: `https://www.omdbapi.com/?t=${text}&apikey=e95cd0d1`,
     headers: { }
   };
-  axios(config)
+
+  return axios(config)
     .then(response=> {
-      console.log(response.data["Type"]);
+      return response.data["Type"];
     })
     .catch(error=> {
       console.log(error);
     });
 }
-isMovie('how i met your mother');
+//isMovie('jumanji');
 
 async function isCafe(name) {
   const config = {
@@ -71,15 +72,16 @@ async function isCafe(name) {
     url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${process.env.API_G}`,
     headers: { }
   };
-  axios(config)
+
+  return axios(config)
     .then(response => {
-      console.log(JSON.stringify(response.data.results[0].types));
+      return JSON.stringify(response.data.results[0].types);
     })
     .catch(error=> {
       console.log(error);
     });
 }
-isCafe('wendys');
+//isCafe('wendys');
 
 async function isProduct(input) {
   const config = {
@@ -87,15 +89,17 @@ async function isProduct(input) {
     url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
     headers: { }
   };
-  axios(config)
+
+  return axios(config)
     .then(response=> {
-      console.log(response["data"]["queryresult"]["datatypes"]);
+      //console.log(response["data"]["queryresult"]["datatypes"]);
+      return response["data"]["queryresult"]["datatypes"];
     })
     .catch(error=> {
       console.log(error);
     });
 }
-isProduct('olive oil');
+//isProduct('milk');
 
 async function isBook(input) {
   const config = {
@@ -103,14 +107,21 @@ async function isBook(input) {
     url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${process.env.API_G}`,
     headers: { }
   };
-  axios(config)
+
+  return axios(config)
     .then(response => {
-      console.log(JSON.stringify(response.data.items[0].volumeInfo.printType));
+      return JSON.stringify(response.data.items[0].volumeInfo.printType);
     })
     .catch(error=> {
       console.log(error);
     });
 }
-isBook('War and peace');
+//isBook('War and peace');
 
+module.exports = {
+  isBook,
+  isCafe,
+  isProduct,
+  isMovie
+};
 

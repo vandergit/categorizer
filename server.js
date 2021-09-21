@@ -36,13 +36,14 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const cookiesRoutes = require("./routes/cookies");
+const getCategorie = require("./routes/getCat.js");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/login", cookiesRoutes(db));
 app.use("/api/express-server", widgetsRoutes(db));
-// app.use("/api/express-server", widgetsRoutes(db));
+app.use('/categories', getCategorie(db));
 // Note: mount other resources here, using the same pattern above
 
 
