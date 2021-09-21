@@ -70,10 +70,10 @@
           <i class="fas fa-tv"></i>
           <p class="category-name">Film / Series</p>
         </div>
-        <ul class="list-items">
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
+        <ul class="list-items movies"> 
+          <% for (let movie of movies) { %>
+            <li><%= movie.description %> </li>
+          <% } %> 
         </ul>
       </div>
       <div class="category-section">
@@ -81,10 +81,10 @@
           <i class="fas fa-utensils"></i>
           <p class="category-name">Places to eat</p>
         </div>
-        <ul class="list-items">
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
+        <ul class="list-items restaurants">
+          <% for (let movie of movies) { %>
+            <li><%= restaurants.description %> </li>
+          <% } %> 
         </ul>
       </div>
       <div class="category-section">
@@ -92,10 +92,10 @@
           <i class="fas fa-book"></i>
           <p class="category-name">Books</p>
         </div>
-        <ul class="list-items">
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
+        <ul class="list-items books">
+          <% for (let movie of movies) { %>
+            <li><%= books.description %> </li>
+          <% } %> 
         </ul>
       </div>
       <div class="category-section">
@@ -103,10 +103,10 @@
           <i class="fas fa-store"></i>
           <p class="category-name">Things to buy</p>
         </div>
-        <ul class="list-items">
-          <li>hello</li>
-          <li>hello</li>
-          <li>hello</li>
+        <ul class="list-items things">
+          <% for (let movie of movies) { %>
+            <li><%= things.description %> </li>
+          <% } %> 
         </ul>
       </div>
     </section>

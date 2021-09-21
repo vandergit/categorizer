@@ -1,11 +1,22 @@
-/* eslint-disable no-undef */
+// /* eslint-disable no-undef */
 // $(() => {
 //   $.ajax({
 //     method: "GET",
-//     url: "/api/users",
-//   }).done((users) => {
-//     for (user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
+//     url: "/activities",
+//   }).done((activities) => {
+//     for (let activity of activities) {
+//       if (activity.category_id === 1) {
+//         $('li').text(activity.description).appendTo('.movies');
+//       }
+//       if (activity.category_id === 2) {
+//         $('li').text(activity.description).appendTo('.restaurants');
+//       }
+//       if (activity.category_id === 3) {
+//         $('li').text(activity.description).appendTo('.books');
+//       }
+//       if (activity.category_id === 4) {
+//         $('li').text(activity.description).appendTo('.things');
+//       }
 //     }
 //   });
 // });

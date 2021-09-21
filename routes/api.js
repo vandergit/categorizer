@@ -47,20 +47,20 @@
 // }
 //quickstart();
 
-require("dotenv").config({path:'../.env'});
-const axios = require('axios');
+require("dotenv").config({ path: "../.env" });
+const axios = require("axios");
 async function isMovie(text) {
   const config = {
-    method: 'get',
+    method: "get",
     url: `https://www.omdbapi.com/?t=${text}&apikey=e95cd0d1`,
-    headers: { }
+    headers: {},
   };
 
   return axios(config)
-    .then(response=> {
+    .then((response) => {
       return response.data["Type"];
     })
-    .catch(error=> {
+    .catch((error) => {
       console.log(error);
     });
 }
@@ -68,16 +68,16 @@ async function isMovie(text) {
 
 async function isCafe(name) {
   const config = {
-    method: 'get',
+    method: "get",
     url: `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${name}&key=${process.env.API_G}`,
-    headers: { }
+    headers: {},
   };
 
   return axios(config)
-    .then(response => {
+    .then((response) => {
       return JSON.stringify(response.data.results[0].types);
     })
-    .catch(error=> {
+    .catch((error) => {
       console.log(error);
     });
 }
@@ -85,17 +85,17 @@ async function isCafe(name) {
 
 async function isProduct(input) {
   const config = {
-    method: 'get',
+    method: "get",
     url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
-    headers: { }
+    headers: {},
   };
 
   return axios(config)
-    .then(response=> {
+    .then((response) => {
       //console.log(response["data"]["queryresult"]["datatypes"]);
       return response["data"]["queryresult"]["datatypes"];
     })
-    .catch(error=> {
+    .catch((error) => {
       console.log(error);
     });
 }
@@ -103,16 +103,16 @@ async function isProduct(input) {
 
 async function isBook(input) {
   const config = {
-    method: 'get',
+    method: "get",
     url: `https://www.googleapis.com/books/v1/volumes?q=${input}&key=${process.env.API_G}`,
-    headers: { }
+    headers: {},
   };
 
   return axios(config)
-    .then(response => {
+    .then((response) => {
       return JSON.stringify(response.data.items[0].volumeInfo.printType);
     })
-    .catch(error=> {
+    .catch((error) => {
       console.log(error);
     });
 }
@@ -122,6 +122,5 @@ module.exports = {
   isBook,
   isCafe,
   isProduct,
-  isMovie
+  isMovie,
 };
-
