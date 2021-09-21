@@ -75,9 +75,9 @@ async function isCafe(name) {
     headers: { }
   };
 
-  axios(config)
+  return axios(config)
     .then(response => {
-      console.log(JSON.stringify(response.data.results[0].types));
+      return JSON.stringify(response.data.results[0].types);
     })
     .catch(error=> {
       console.log(error);
@@ -110,9 +110,9 @@ async function isBook(input) {
     headers: { }
   };
 
-  axios(config)
+  return axios(config)
     .then(response => {
-      console.log(JSON.stringify(response.data.items[0].volumeInfo.printType));
+      return JSON.stringify(response.data.items[0].volumeInfo.printType);
     })
     .catch(error=> {
       console.log(error);
