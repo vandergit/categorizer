@@ -74,3 +74,4 @@ for (let index = 0; index < allListItems.length; index++) {
     this.closest(".delete").remove();
   });
 }
+
