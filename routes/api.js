@@ -46,7 +46,7 @@
 //   });
 // }
 //quickstart();
-
+const stringSimilarity = require("string-similarity");
 require("dotenv").config({ path: "../.env" });
 const axios = require("axios");
 async function isMovie(text) {
@@ -58,7 +58,13 @@ async function isMovie(text) {
 
   return axios(config)
     .then((response) => {
-      return response.data["Type"];
+      //console.log(response.data["Title"].toLowerCase(), text);
+      const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), text);
+      //console.log(similarity);
+      if (similarity >= 0.8) {
+        return response.data["Type"];
+      }
+      return "doesn't match";
     })
     .catch((error) => {
       console.log(error);
