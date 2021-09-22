@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/container.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/animations.css" type="text/css" />
     <link
       rel="stylesheet"
       href="/styles/categories-section.css"
@@ -39,6 +40,8 @@
     />
   </head>
   <body>
+
+
     <nav class="navbar" id="scrollingNav">
       <div class="name-icons">
         <p class="logo-categories">Categorizer</p>
@@ -51,12 +54,15 @@
 
     <section class="item-search-container">
       <div class="search-container">
+        <label class="form-label" for="text">Where we  do the organizing for you</label>
         <form method="POST" action="/categories">
           <input
             id="text"
             type="text"
             name="text"
             placeholder="The Bee Movie"
+            minlength="2"
+            required
             class="search-form"
           />
           <button type="submit" class="categorize-button">
@@ -64,59 +70,71 @@
           </button>
         </form>
       </div>
-      <div class="trash-icon">
-        <i class="fas fa-trash"></i>
-      </div>
 
     </section>
 
     <section class="categories-container">
-      <div class="category-section">
+      <div class="category-section float">
         <div class="name-icon">
           <i class="fas fa-tv"></i>
           <p class="category-name">Film / Series</p>
         </div>
         <ul class="list-items movies">
           <% for (let movie of movies) { %>
-            <li class="draggable delete" draggable="true" id=<%= movie.id %> ><%= movie.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete list-item-style" draggable="true" id=<%= movie.id %> ><%= movie.description %> 
+              <button id="delete">
+                <i class="fas fa-trash pulse"></i>
+              </button>
+            </li>
           <% } %>
         </ul>
       </div>
-      <div class="category-section">
+      <div class="category-section float">
         <div class="name-icon">
           <i class="fas fa-utensils"></i>
           <p class="category-name">Places to eat</p>
         </div>
         <ul class="list-items restaurants">
           <% for (let restaurant of restaurants) { %>
-            <li class="draggable delete" draggable="true" id=<%= restaurant.id %>><%= restaurant.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete list-item-style" draggable="true" id=<%= restaurant.id %>><%= restaurant.description %> 
+              <button id="delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </li>
           <% } %>
         </ul>
       </div>
-      <div class="category-section">
+      <div class="category-section float">
         <div class="name-icon">
           <i class="fas fa-book"></i>
           <p class="category-name">Books</p>
         </div>
         <ul class="list-items books">
           <% for (let book of books) { %>
-            <li class="draggable delete" draggable="true" id=<%= book.id %>><%= book.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete list-item-style" draggable="true" id=<%= book.id %>><%= book.description %> 
+              <button id="delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </li>
           <% } %>
         </ul>
       </div>
-      <div class="category-section">
+      <div class="category-section float">
         <div class="name-icon">
           <i class="fas fa-store"></i>
           <p class="category-name">Things to buy</p>
         </div>
         <ul class="list-items things">
           <% for (let thing of things) { %>
-            <li class="draggable delete" draggable="true" id=<%= thing.id %>><%= thing.description %> <button id="delete"><i class="fas fa-trash"></i></button></li>
+            <li class="draggable delete list-item-style" draggable="true" id=<%= thing.id %>><%= thing.description %> 
+              <button id="delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </li>
           <% } %>
         </ul>
       </div>
     </section>
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </body>
