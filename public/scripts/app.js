@@ -4,12 +4,12 @@ const ulContainers = document.querySelectorAll(".list-items");
 draggables.forEach((draggable) => {
   draggable.addEventListener("dragstart", () => {
     draggable.classList.add("dragging");
-    console.log("--------",draggable.id);
+    // console.log("--------",draggable.id);
   });
 
   draggable.addEventListener("dragend", () => {
     draggable.classList.remove("dragging");
-    console.log("!!!!!!!!",draggable.parentElement.classList);
+    // console.log("!!!!!!!!",draggable.parentElement.classList);
     let user = draggable.id;
     let newVal = 0;
     if (draggable.parentElement.classList[1] === 'books') {
@@ -21,7 +21,7 @@ draggables.forEach((draggable) => {
     } else if (draggable.parentElement.classList[1] === 'things') {
       newVal = 4;
     }
-    console.log("NEEEEEW",newVal, user);
+    // console.log("NEEEEEW",newVal, user);
     editItem(newVal, user);
   });
 });
@@ -37,17 +37,14 @@ ulContainers.forEach((ulContainer) => {
     //console.log(ulContainer.classList);
 
     let x = ulContainer.classList;
-    //console.log("X::::", x);
-    // if (x.contains('books')) {
-    //   draggable.
-    // }
+
     console.log("value", draggable.textContent);
     //console.log("after:",draggable.id);
   });
 });
 
 const editItem = (newVal, user) => {
-  console.log('!!!!!!!!!!!!!!!!!!!!', newVal);
+  // console.log('!!!!!!!!!!!!!!!!!!!!', newVal);
   $.ajax({ type: "PUT", url: "/categories/edit" , data: {category_id: newVal,
     item_id: user}})
     .then((res) => {
@@ -56,14 +53,24 @@ const editItem = (newVal, user) => {
     );
 };
 
+const deleteItem = (activity) => {
+  $.ajax({ type: "POST", url: "/categories/delete" , data: {activity_id: activity}})
+    .then((res) => {
+      console.log("this is a deletion");
+    }
+    );
+};
+
 const allListItems = document.querySelectorAll(".delete");
 for (let index = 0; index < allListItems.length; index++) {
   allListItems[index].addEventListener("click", function() {
+    // console.log('allListItems id',  allListItems[index].id);
+    deleteItem(allListItems[index].id);
     this.classList.toggle("active");
   });
   allListItems[index]
-    .querySelector("#delete")
-    .addEventListener("click", function() {
-      this.closest(".delete").remove();
-    });
+  .querySelector("#delete")
+  .addEventListener("click", function() {
+    this.closest(".delete").remove();
+  });
 }
