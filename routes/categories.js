@@ -104,8 +104,9 @@ module.exports = (db) => {
 
 
   });
+
   router.put('/edit', (req, res) => {
-    console.log('I am edit =>>>>>>>>>', req.body);
+    // console.log('I am edit =>>>>>>>>>', req.body);
     db.query(
       `UPDATE activities
       SET category_id = $1
@@ -113,153 +114,24 @@ module.exports = (db) => {
       [req.body.category_id, req.body.item_id]
     )
       .then((data) => {
-        console.log("front-success");
+        // console.log("front-success");
         res.json({ data });
       })
       .catch((err) => console.log(err.massage));
   });
+
+  router.post('/delete', (req, res) => {
+    // console.log('I am delete =>>>>>>>>>', req.body.activity_id);
+    db.query(
+      `DELETE FROM activities
+        WHERE id = $1;`,
+      [req.body.activity_id]
+    )
+    .then((data) => {
+      res.json({ data });
+    })
+    .catch((err) => console.log(err.massage));
+  });
+
   return router;
 };
-
-
-
-// isProduct(text).then((res) => {
-//   if (res === "ExpandedFood") {
-//     db.query(
-//       `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-//       [text]
-//     )
-//       .then((data) => {
-//         console.log("success");
-//         res.json({ data });
-//       })
-//       .catch((err) => console.log(err.massage));
-//   } else {
-//     isMovie(text).then((res) => {
-//       if (res === "movie" || res === "series") {
-//         db.query(
-//           `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`,
-//           [text]
-//         )
-//           .then((data) => {
-//             console.log("success");
-//             res.json({ data });
-//           })
-//           .catch((err) => console.log(err.massage));
-//       } else {
-//         isCafe(text).then((res) => {
-//           if (res.includes("restaurant") || res.includes("cafe")) {
-//             db.query(
-//               `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
-//               [text]
-//             )
-//               .then((data) => {
-//                 console.log("success");
-//                 res.json({ data });
-//               })
-//               .catch((err) => console.log(err.massage));
-//           } else {
-//             isBook(text).then((res) => {
-//               if (res === "Book") {
-//                 db.query(
-//                   `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
-//                   [text]
-//                 )
-//                   .then((data) => {
-//                     console.log("success");
-//                     res.json({ data });
-//                   })
-//                   .catch((err) => console.log(err.massage));
-//               } else {
-//                 db.query(
-//                   `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-//                   [text]
-//                 )
-//                   .then((data) => {
-//                     console.log("success");
-//                     res.json({ data });
-//                   })
-//                   .catch((err) => console.log(err.massage));
-//               }
-//             });
-//           }
-//         });
-//       }
-//     });
-//   }
-// });
-// res.redirect("/categories");
-
-// module.exports = (db) => {
-//   router.post("/", (req, res) => {
-//     const text = req.body.text;
-//     console.log("funct:", isProduct(text));
-
-//     isProduct(text).then((res) => {
-//       console.log("Jairo!!!!!", res);
-//       console.log(res === "ExpandedFood");
-//       if (res === "ExpandedFood") {
-//         return db.query(
-//           `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-//           [text]
-//         )
-//           .then((data) => {
-//             console.log("success");
-//             res.json({ data });
-//           })
-//           .catch((err) => console.log(err.massage));
-//       }
-//     });
-
-//     isMovie(text).then((res) => {
-//       if (res === "movie" || res === "series") {
-//         db.query(
-//           `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`,
-//           [text]
-//         )
-//           .then((data) => {
-//             console.log("success");
-//             res.json({ data });
-//           })
-//           .catch((err) => console.log(err.massage));
-//       }
-//     });
-
-//     isCafe(text).then((res) => {
-//       if (res.includes("restaurant") || res.includes("cafe")) {
-//         db.query(
-//           `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
-//           [text]
-//         )
-//           .then((data) => {
-//             console.log("success");
-//             res.json({ data });
-//           })
-//           .catch((err) => console.log(err.massage));
-//       }
-//     });
-//     isBook(text).then((res) => {
-//       if (res === "Book") {
-//         db.query(
-//           `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
-//           [text]
-//         )
-//           .then((data) => {
-//             console.log("success");
-//             res.json({ data });
-//           })
-//           .catch((err) => console.log(err.massage));
-//       }
-//       db.query(
-//         `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-//         [text]
-//       )
-//         .then((data) => {
-//           console.log("success");
-//           res.json({ data });
-//         })
-//         .catch((err) => console.log(err.massage));
-//     });
-//   });
-//   return router;
-// };

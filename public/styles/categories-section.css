@@ -1,4 +1,6 @@
 .item-search-container {
+    height: 100px;
+    margin-top: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,32 +10,19 @@
 }
 
 .search-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   color: black;
-  height: 200px;
-  width:500px
+  justify-content: center;
+  align-items: center;
 }
 
 .search-form {
-  padding: 5px 5px;
+  padding: 10px 200px;
   border-radius: 15px;
-  width: 450px;
-  font-size:20pt;
-  outline: none;
-}
-
-.form-label {
-  font-size: 30px;
-  color:rgb(229, 242, 255);
-margin-bottom: 10px;
 }
 
 .search-icon {
-  font-size: 30px;
-  background: #4e54c8;
-  color:rgb(229, 242, 255)
+  font-size: 20px;
 }
 .categorize-button {
   border: none;
@@ -41,7 +30,6 @@ margin-bottom: 10px;
 
 .trash-icon {
   font-size: 40px;
-
 }
 
 .categories-container {
@@ -49,26 +37,20 @@ margin-bottom: 10px;
   justify-content: space-evenly;
   flex-direction: row;
   margin-top: 10px;
-
 }
 
 .category-section {
-  width: 20%;
-  font-size: 90px;
+  width: 25%;
+  font-size: 100px;
   padding-top: 20px;
-  border: dashed;
-  border-radius: 15px;
-    color: rgb(229, 242, 255);
-  background: #222677;
-  height: fit-content;
-
+  
 }
 
 .name-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: solid;
+  border: solid;
   padding-top: 15px;
 }
 
@@ -86,22 +68,8 @@ margin-bottom: 10px;
   font-size:30px;
   list-style-type: none;
   margin: auto;
+  border: solid;
   border-top: none
-}
-
-.list-item-style {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 30px;
-}
-
-#delete {
-  border: none;
-  background: none;
-  font-size:20px;
-  transition: 2s;
-    color: rgb(229, 242, 255);
-
 }
 
 .draggable {
