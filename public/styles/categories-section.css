@@ -64,8 +64,8 @@
 .list-items {
   display: flex;
   flex-direction: column;
-
-  font-size:40px;
+  padding: inherit;
+  font-size:30px;
   list-style-type: none;
   margin: auto;
   border: solid;
