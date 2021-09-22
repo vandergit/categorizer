@@ -105,7 +105,18 @@ module.exports = (db) => {
 
   });
   router.put('/edit', (req, res) => {
-    console.log('I am edit =>>>>>>>>>');
+    console.log('I am edit =>>>>>>>>>', req.body);
+    db.query(
+      `UPDATE activities
+      SET category_id = $1
+      WHERE id = $2;`,
+      [req.body.category_id, req.body.item_id]
+    )
+      .then((data) => {
+        console.log("front-success");
+        res.json({ data });
+      })
+      .catch((err) => console.log(err.massage));
   });
   return router;
 };
