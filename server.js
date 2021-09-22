@@ -57,12 +57,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// app.get('/login', (req, res) => {
-//   // req.session.user_id = user.id;
-//   res.redirect('categories');
-// });
-
-
 app.get("/settings", (req, res) => {
   res.render("settings");
 });
