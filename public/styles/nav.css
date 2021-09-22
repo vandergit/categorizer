@@ -4,18 +4,8 @@
   top: 0;
   display: flex;
   justify-content: space-between;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  position: fixed;
+  background-color: #F9F8FD
 }
 
 .name-icons {
@@ -78,15 +68,12 @@ color: #716868;
     align-items: center;
     margin-right: 25px;
     text-decoration: none;
+    color: #000;
     font-size:20px;
-  color: aliceblue;
-
 }
 
 .user-icon {
   font-size: 35px;
-  color: aliceblue;
-
 }
 
 .user-icon-label {
@@ -97,7 +84,6 @@ margin: 0;
   width: 400px;
   font-size:30px;
   margin-left: 20px;
-  color: aliceblue;
 }
 
 /* settings */
@@ -108,4 +94,5 @@ margin: 0;
   align-items: center;
   width: 200px;
   justify-content: space-evenly;
+  color: #000;
 }
