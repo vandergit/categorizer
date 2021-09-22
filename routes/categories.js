@@ -64,7 +64,7 @@ module.exports = (db) => {
             })
             .catch((err) => console.log(err.massage));
 
-        } else if (result[2].includes("restaurant") || result[2].includes("cafe")) {
+        } else if (result[2].includes("restaurant") || result[2].includes("cafe") || result[2].includes("bakery")) {
           db.query(
             `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
             [text]
@@ -75,7 +75,7 @@ module.exports = (db) => {
             })
             .catch((err) => console.log(err.massage));
 
-        } else if (result[3] === "Book") {
+        } else if (result[3].toLowerCase() === "book") {
           db.query(
             `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
             [text]

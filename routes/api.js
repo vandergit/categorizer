@@ -50,17 +50,27 @@ const stringSimilarity = require("string-similarity");
 require("dotenv").config({ path: "../.env" });
 const axios = require("axios");
 async function isMovie(text) {
+  let val = '';
+  const newText = text.trim().split(' ');
+  if (newText[newText.length - 1] === 'season') {
+    newText.pop();
+  }
+  if (!isNaN(newText[newText.length - 1])) {
+    newText.pop();
+  }
+  if (newText[newText.length - 1] === 'season') {
+    newText.pop();
+  }
+  val = newText.join(' ').trim();
   const config = {
     method: "get",
-    url: `https://www.omdbapi.com/?t=${text}&apikey=e95cd0d1`,
+    url: `https://www.omdbapi.com/?t=${val}&apikey=e95cd0d1`,
     headers: {},
   };
 
   return axios(config)
     .then((response) => {
-      //console.log(response.data["Title"].toLowerCase(), text);
-      const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), text);
-      //console.log(similarity);
+      const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val);
       if (similarity >= 0.8) {
         return response.data["Type"];
       }
@@ -81,7 +91,11 @@ async function isCafe(name) {
 
   return axios(config)
     .then((response) => {
-      return JSON.stringify(response.data.results[0].types);
+      if (response.data.results.length >= 1) {
+        return JSON.stringify(response.data.results[0].types);
+      } else {
+        return "doesn't match";
+      }
     })
     .catch((error) => {
       console.log(error);
