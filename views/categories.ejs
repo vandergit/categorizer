@@ -40,7 +40,7 @@
     />
   </head>
   <body class="area">
-    
+
     <ul class="circles">
       <li></li>
       <li></li>
@@ -53,7 +53,7 @@
       <li></li>
       <li></li>
     </ul>
-    
+
     <nav class="navbar" id="scrollingNav">
       <div class="name-icons">
         <p class="logo">Categorizer</p>
@@ -76,7 +76,7 @@
             required
             class="search-form"
           />
-          <button type="submit" class="categorize-button">
+          <button type="submit" class="categorize-button" style="cursor: pointer">
             <i class="fas fa-search search-icon"></i>
           </button>
         </form>
@@ -91,7 +91,7 @@
         </div>
         <ul class="list-items movies">
           <% for (let movie of movies) { %>
-            <li class="draggable delete list-item-style" draggable="true" id=<%= movie.id %> ><%= movie.description %> 
+            <li class="draggable delete list-item-style" draggable="true" id=<%= movie.id %> ><%= movie.description %>
               <button id="delete">
                 <i class="fas fa-trash pulse"></i>
               </button>
@@ -106,7 +106,7 @@
         </div>
         <ul class="list-items restaurants">
           <% for (let restaurant of restaurants) { %>
-            <li class="draggable delete list-item-style" draggable="true" id=<%= restaurant.id %>><%= restaurant.description %> 
+            <li class="draggable delete list-item-style" draggable="true" id=<%= restaurant.id %>><%= restaurant.description %>
               <button id="delete">
                 <i class="fas fa-trash"></i>
               </button>
@@ -121,7 +121,7 @@
         </div>
         <ul class="list-items books">
           <% for (let book of books) { %>
-            <li class="draggable delete list-item-style" draggable="true" id=<%= book.id %>><%= book.description %> 
+            <li class="draggable delete list-item-style" draggable="true" id=<%= book.id %>><%= book.description %>
               <button id="delete">
                 <i class="fas fa-trash"></i>
               </button>
@@ -136,7 +136,7 @@
         </div>
         <ul class="list-items things">
           <% for (let thing of things) { %>
-            <li class="draggable delete list-item-style" draggable="true" id=<%= thing.id %>><%= thing.description %> 
+            <li class="draggable delete list-item-style" draggable="true" id=<%= thing.id %>><%= thing.description %>
               <button id="delete">
                 <i class="fas fa-trash"></i>
               </button>
