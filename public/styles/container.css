@@ -1,67 +1,121 @@
-.welcome-container {
-  background: linear-gradient(119deg, #E8DC72, #E2747A, #77C0E0);
-  background-size: 600% 600%;
-  animation: GradientBackground 15s ease infinite;
-  height: 420px;
+.section-container {
+  height: 450px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  color: black;
-  justify-content: space-evenly;
+  color: #4e54c8;  
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
 }
 
-.left-side-container{
-  width: 50%;
+.welcome-container {
+  width: 80%;
+  display: flex;
+  background-color: rgb(229, 242, 255);
+  padding: 30px;
+  border-radius: 25px;
+}
+
+.left-container {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  justify-content: space-evenly;
+  height: 300px;
+  width: 50%;
 }
 
-.left-side-content {
-  width: 80%;
-  margin-left: auto;
-}
-
-.heading {
-  font-size:35px;
-}
-
-.message {
-  font-size:20px;
-  line-height: 25px;
-}
-
-.inner-sign-up-button {
-  margin-left:10px;
-  background-color: #4500FF;
-  border-radius: 20px;
-  border: none;
-  padding: 5px 9px;
-}
-
-.right-side-container {
+.right-container {
   display: flex;
   align-content: center;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
   width: 50%;
-  font-size: 200px;
+  align-items: center;
+}
+.icons {
+  font-size: 80px;
 }
 
-.checklist {
-  margin-top: 100px;
+.main-message {
+  font-size: 50px;
 }
 
-@keyframes GradientBackground {
-  0% {
-    background-position: 0% 50%;
-  }
+.slogan {
+  font-size: 30px;
+}
 
-  50% {
-    background-position: 100% 50%;
-  }
+.btn {
+  width: 200px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
 
-  100% {
-    background-position: 0% 50%;
-  }
-};
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  background-image: linear-gradient(
+    to right,
+    #667eea,
+    #764ba2,
+    #6b8dd6,
+    #8e37d7
+  );
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+
+.card {
+  background-color: var(--background);
+  width: 80%;
+  min-height: 90px;
+  border: 3px solid var(--primary);
+  padding: 15px;
+  box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--primary),
+        20px -20px 0 -3px var(--background), 20px -20px var(--primary), 
+        30px -30px 0 -3px var(--background), 30px -30px var(--primary), 
+        40px -40px 0 -3px var(--background), 40px -40px var(--primary); 
+  transition: box-shadow 1s, top 1s, left 1s;
+  position: relative;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 0 0 -3px var(--background), 0 0 0 0 var(--primary),
+      0 0 0 -3px var(--background), 0 0 0 0  var(--primary),
+      0 0 0 -3px var(--background), 0 0 0 0  var(--primary),
+      0 0 0 -3px  var(--background), 0 0 0 0  var(--primary);
+}
+:root {
+  --primary: #4e54c8;
+  --background:  rgb(229, 242, 255);
+  --yellow: rgb(255, 241, 119);
+
+} 
+
