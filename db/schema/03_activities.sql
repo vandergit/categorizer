@@ -1,3 +1,18 @@
+-----------------------------------------------------------------------------
+-- File             : ./schema/03_activities.sql
+-- Author           : Polina, Jose, Jairo
+-- Date             : Sep 24, 2021
+-- Purpose          : Create activities table recording the ToDo List content
+-- Called by        : ./bin/resetdb.js
+-- Affected table(s): activities
+-----------------------------------------------------------------------------
+-- id         : Auto-incremented PK
+-- user_id    : FK to users table
+-- category_id: FK to categories table
+-- description: ToDo activity from the user
+-- created_at : Activity creation date (with time zone)
+-----------------------------------------------------------------------------
+
 DROP TABLE IF EXISTS activities CASCADE;
 
 CREATE TABLE "activities" (
