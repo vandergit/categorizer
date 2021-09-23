@@ -40,30 +40,30 @@
     />
   </head>
   <body class="area">
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-
+    
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    
     <nav class="navbar" id="scrollingNav">
       <div class="name-icons">
-        <p class="logo-categories">Categorizer</p>
+        <p class="logo">Categorizer</p>
       </div>
-      <a href="/settings" class="user-settings">
-        <i class="fas fa-user-cog user-icon"></i>
-        <p class="user-icon-label">User Settings</p>
-      </a>
+      <div class="login-section">
+        <a href="/" class="login">Logout</a>
+      </div>
     </nav>
 
-    <section class="item-search-container">
+    <section class="item-search-container ">
       <div class="search-container">
         <label class="form-label" for="text">Where we  do the organizing for you</label>
         <form method="POST" action="/categories">
@@ -81,10 +81,9 @@
           </button>
         </form>
       </div>
-
     </section>
 
-    <section class="categories-container">
+    <section class="categories-container fade">
       <div class="category-section float">
         <div class="name-icon">
           <i class="fas fa-tv"></i>

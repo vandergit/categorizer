@@ -4,66 +4,58 @@
   top: 0;
   display: flex;
   justify-content: space-between;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  position: relative;
 }
 
 .name-icons {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 400px;
-  justify-content: space-evenly;
+  justify-content: center;
+  color: rgb(229, 242, 255)
 }
 
 .logo {
-  padding: 0;
-  margin: 0;
-  font-size:30px
+  width: 400px;
+  font-size: 40px;
+  color: rgb(229, 242, 255);
+  display: flex;
+  justify-content: center;
 }
 
-.icons {
-  size: 40px;
-  font-size: 25px;
-}
-
-.login-signup {
+.login-section {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 250px;
   justify-content: space-evenly;
+  width: 200px;
 }
 
 a {
   text-decoration: none;
-  font-size: 28px;
+  font-size: 30px;
+  color: rgb(229, 242, 255);
 }
 
 .login {
-color: #716868;
+  color:rgb(229, 242, 255);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .login:hover {
-  color:#000
+  color: rgb(246, 235, 138);
 }
 
 .sign-up {
-  color: #EEE;
+  color: #eee;
 }
 
 .sign-up-button {
-  background-color: #4500FF;
+  background-color: #4500ff;
   border-radius: 20px;
   border: none;
   padding: 5px 9px;
@@ -72,33 +64,25 @@ color: #716868;
 /* category/settings page */
 
 .user-settings {
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    margin-right: 25px;
-    text-decoration: none;
-    font-size:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  text-decoration: none;
+  font-size: 20px;
   color: aliceblue;
-
 }
 
 .user-icon {
   font-size: 35px;
   color: aliceblue;
-
 }
 
 .user-icon-label {
-margin: 0;
+  margin: 0;
 }
 
-.logo-categories {
-  width: 400px;
-  font-size:30px;
-  margin-left: 20px;
-  color: aliceblue;
-}
 
 /* settings */
 
