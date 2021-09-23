@@ -1,3 +1,10 @@
+/* Name     : ./routes/api.js
+ * Author(s): Polina, Jose, Jairo
+ * Date     : Sep 24, 2021
+ * Purpose  : Route dealing with API calls
+ * See      : https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ */
+
 /* eslint-disable func-style */
 
 const stringSimilarity = require("string-similarity");
@@ -21,11 +28,11 @@ async function isMovie(text) {
     url: `https://www.omdbapi.com/?t=${val}&apikey=${process.env.API_O}`,
     headers: {},
   };
-  console.log("VVVVV",val);
+
   return axios(config)
     .then((response) => {
       if (response.data['Response'] === "True") {
-        const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val);
+        const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val.toLowerCase());
         if (similarity >= 0.8) {//since api could give the response for "mcdonalds" that they have movie "mcdonalds in the dark forest"
           return response.data["Type"];
         }
@@ -65,13 +72,9 @@ async function isProduct(input) {
     url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
     headers: {},
   };
-  // let start = new Date().getTime();
+
   return axios(config)
     .then((response) => {
-      //console.log(response["data"]["queryresult"]["datatypes"]);
-      // let end = new Date().getTime();
-      // let time = end - start;
-      // console.log('Execution time: ' + time);
       if (response["data"]["queryresult"]["success"]) {
         return response["data"]["queryresult"]["datatypes"];
       } else {
