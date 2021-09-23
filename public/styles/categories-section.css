@@ -19,13 +19,13 @@
 .search-form {
   padding: 5px 5px;
   border-radius: 15px;
-  width: 450px;
+  width: 800px;
   font-size:20pt;
   outline: none;
 }
 
 .form-label {
-  font-size: 30px;
+  font-size: 40px;
   color:rgb(229, 242, 255);
 margin-bottom: 10px;
 }
@@ -35,6 +35,11 @@ margin-bottom: 10px;
   background: #4e54c8;
   color:rgb(229, 242, 255)
 }
+
+.search-icon:hover {
+  color: rgb(246, 235, 138);
+}
+
 .categorize-button {
   border: none;
 }
@@ -93,7 +98,14 @@ margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   margin: 10px 30px;
+  color: rgb(229, 242, 255);
+  font-size:25px;
 }
+
+.list-item-style:hover { 
+color: rgb(246, 235, 138);
+}
+
 
 #delete {
   border: none;
