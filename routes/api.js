@@ -21,14 +21,18 @@ async function isMovie(text) {
     url: `https://www.omdbapi.com/?t=${val}&apikey=${process.env.API_O}`,
     headers: {},
   };
-
+  console.log("VVVVV",val);
   return axios(config)
     .then((response) => {
-      const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val);
-      if (similarity >= 0.8) {//since api could give the response for "mcdonalds" that they have movie "mcdonalds in the dark forest"
-        return response.data["Type"];
+      if (response.data['Response'] === "True") {
+        const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val);
+        if (similarity >= 0.8) {//since api could give the response for "mcdonalds" that they have movie "mcdonalds in the dark forest"
+          return response.data["Type"];
+        }
+        return "doesn't match";
+      } else {
+        return "not exist";
       }
-      return "doesn't match";
     })
     .catch((error) => {
       console.log(error);
@@ -68,7 +72,11 @@ async function isProduct(input) {
       // let end = new Date().getTime();
       // let time = end - start;
       // console.log('Execution time: ' + time);
-      return response["data"]["queryresult"]["datatypes"];
+      if (response["data"]["queryresult"]["success"]) {
+        return response["data"]["queryresult"]["datatypes"];
+      } else {
+        return 'no success';
+      }
     })
     .catch((error) => {
       console.log(error);
