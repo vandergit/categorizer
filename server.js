@@ -8,9 +8,9 @@
  * Reference: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  * Start    : 1. Run ./bin/resetdb.js
  *            2. Run npm i
- *            3. Add API keys to .env file (API_G=your key for google api
- *                                          API_W=your key for wolframalpha api
- *                                          API_O=your key for obdb api)
+ *            3. Add your API keys to .env file (API_G=your key for google api
+ *                                               API_W=your key for wolframalpha api
+ *                                               API_O=your key for obdb api)
  *            4. npm run local
  *            5. localhost:8080 (browser)
  */
@@ -54,25 +54,17 @@ app.use(
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-//const usersRoutes = require("./routes/users");
 const cookiesRoutes = require("./routes/cookies");
 const categoriesRoutes = require("./routes/categories");
-//const activitiesRoutes = require("./routes/activities");
 
 // Mount all resource routes
-//app.use("/api/users", usersRoutes(db));
 app.use("/login", cookiesRoutes(db));
 app.use("/categories", categoriesRoutes(db));
-//app.use("/activities", activitiesRoutes(db));
 
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
-
-// app.get("/settings", (req, res) => {
-//   res.render("settings");
-// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

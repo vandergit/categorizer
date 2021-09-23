@@ -75,9 +75,7 @@ const editItem = (newVal, user) => {
     type: "PUT",
     url: "/categories/edit",
     data: { category_id: newVal, item_id: user },
-  }).then((res) => {
-    console.log("this is the response from app=>>>>");
-  });
+  }).then((res) => {});
 };
 
 // Here we tell the database which elements got deleted
@@ -86,9 +84,7 @@ const deleteItem = (activity) => {
     type: "POST",
     url: "/categories/delete",
     data: { activity_id: activity },
-  }).then((res) => {
-    console.log("this is a deletion");
-  });
+  }).then((res) => {});
 };
 
 // This listens for when an item gets deleted then removes it

@@ -1,3 +1,11 @@
+/* Name     : ./routes/cookies.js
+ * Author(s): Polina, Jose, Jairo
+ * Date     : Sep 24, 2021
+ * Purpose  : Validate the API response
+ *            Endpoints get data from the PostgresSQL DB (midterm)
+ * See      : https://expressjs.com/en/guide/using-middleware.html#middleware.router
+ */
+
 const { isMovie, isBook, isProduct, isCafe } = require("./api");
 
 const express = require("express");
@@ -5,7 +13,7 @@ const router = express.Router();
 
 module.exports = (db) => {
   const getActivities = (categoryId) => {//function for sorting rows from database
-    return db.query(`SELECT * FROM activities WHERE category_id = $1;`, [
+    return db.query(`SELECT * FROM activities WHERE category_id = $1 ORDER BY description;`, [
       categoryId,
     ]);
   };
@@ -30,84 +38,8 @@ module.exports = (db) => {
       .catch((err) => res.status(500).send(err));
   });
 
-  // router.post("/", (req, res) => {
-  //   const text = req.body.text;
-  //   // console.log("funct:", isProduct(text));
-  //   Promise.all([
-  //     isProduct(text),
-  //     isMovie(text),
-  //     isCafe(text),
-  //     isBook(text)
-  //   ])
-  //     .then(result=>{
-  //       if (result[0] === "ExpandedFood") {
-  //         db.query(
-  //           `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-  //           [text]
-  //         )
-  //           .then((data) => {
-  //             console.log("Food-success");
-  //             result.json({ data });
-  //           })
-  //           .catch((err) => console.log(err.massage));
-
-  //       } else if (result[1] === "movie" || result[1] === "series") {
-  //         db.query(
-  //           `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`,
-  //           [text]
-  //         )
-  //           .then((data) => {
-  //             console.log("Movie-success");
-  //             result.json({ data });
-  //           })
-  //           .catch((err) => console.log(err.massage));
-
-  //       } else if (result[2].includes("restaurant") || result[2].includes("cafe") || result[2].includes("bakery")) {
-  //         db.query(
-  //           `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`,
-  //           [text]
-  //         )
-  //           .then((data) => {
-  //             console.log("Restaurant-success");
-  //             result.json({ data });
-  //           })
-  //           .catch((err) => console.log(err.massage));
-
-  //       } else if (result[3].toLowerCase() === "book") {
-  //         db.query(
-  //           `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`,
-  //           [text]
-  //         )
-  //           .then((data) => {
-  //             console.log("Book-success");
-  //             result.json({ data });
-  //           })
-  //           .catch((err) => console.log(err.massage));
-
-  //       } else {
-  //         db.query(
-  //           `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`,
-  //           [text]
-  //         )
-  //           .then((data) => {
-  //             console.log("success");
-  //             result.json({ data });
-  //           })
-  //           .catch((err) => console.log(err.massage));
-  //       }
-
-  //       res.redirect("/categories");
-  //     })
-  //     .catch((err) => res.status(500).send(err));
-
-
-  // });
   router.post("/", (req, res) => {
     const text = req.body.text;//get html input
-    // let ti = new Date();
-    // const start = ti.getSeconds();
-    // const startms = ti.getMilliseconds();
-    //let start = new Date().getTime();
     Promise.all([
       isProduct(text),
       isMovie(text),
@@ -116,35 +48,25 @@ module.exports = (db) => {
     ])
       .then(result=>{
         let queryString = "";
-        // let ti2 = new Date();
-        // const finish = ti2.getSeconds();
-        // const finMs =ti2.getMilliseconds();
-        // console.log(start,"____", startms, "FINISH", finish,"____", finMs);
-        //let ti = new Date();
-        //const start = ti.getSeconds();
-        // let end = new Date().getTime();
-        // let time = end - start;
-        // console.log('Execution time: ' + time);
         if (result[0] === "ExpandedFood") {
           queryString = `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`;
         } else if (result[1] === "movie" || result[1] === "series") {
           queryString = `INSERT INTO activities (user_id, category_id, description) VALUES (1,1,$1)`;
         } else if (result[2].includes("restaurant") || result[2].includes("cafe") || result[2].includes("bakery")) {
           queryString = `INSERT INTO activities (user_id, category_id, description) VALUES (1,2,$1)`;
-        } else if (result[3].toLowerCase() === "book") {
+        } else if (result[3] === '"BOOK"') {
           queryString = `INSERT INTO activities (user_id, category_id, description) VALUES (1,3,$1)`;
         } else {
           queryString = `INSERT INTO activities (user_id, category_id, description) VALUES (1,4,$1)`;
         }
-        db.query(queryString, [text])//pass query to the database
-          .then((data) => {
-            result.json({ data });
-          })
-          .catch((err) => console.log(err.massage));
+        return db.query(queryString, [text])//pass query to the database
+      })
+      .then((data) => {
         res.redirect("/categories");//refresh the page with new data
       })
-      .catch((err) => res.status(500).send(err));
-
+      .catch((err) => {
+        res.status(500).send(err);
+      });
   });
 
   router.put('/edit', (req, res) => {//drag-n-drop implementation
@@ -174,5 +96,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-
