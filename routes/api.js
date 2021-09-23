@@ -1,77 +1,31 @@
 /* eslint-disable func-style */
-//*********************************************Using natural language */
-// async function quickstart() {
-//   // Imports the Google Cloud client library
-//   const language = require('@google-cloud/language');
 
-//   // Instantiates a client
-//   const client = new language.LanguageServiceClient();
-
-//   // The text to analyze
-//   const text = process.argv[2];
-//   console.log(text);
-
-//   const document = {
-//     content: text,
-//     type: 'PLAIN_TEXT',
-//   };
-
-// Detects entities in the document
-//list of entities:
-//'UNKNOWN'
-//'PERSON'
-//'LOCATION'
-//'ORGANIZATION'
-//'EVENT'
-//'WORK_OF_ART'
-//'CONSUMER_GOOD'
-//'OTHER'
-//'PHONE_NUMBER'
-//'ADDRESS'
-//'DATE'
-//'NUMBER'
-//'PRICE'
-
-//   const [result1] = await client.analyzeEntities({document});
-
-//   const entities = result1.entities;
-
-//   console.log('Entities:');
-//   entities.forEach(entity => {
-//     console.log(entity.name);
-//     console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
-//     if (entity.metadata && entity.metadata.wikipedia_url) {
-//       console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}`);
-//     }
-//   });
-// }
-//quickstart();
 const stringSimilarity = require("string-similarity");
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "../.env" });//import .env file
 const axios = require("axios");
 async function isMovie(text) {
   let val = '';
   const newText = text.trim().split(' ');
-  if (newText[newText.length - 1] === 'season') {
+  if (newText[newText.length - 1] === 'season') { //in case the iput is ".... 4 season"
     newText.pop();
   }
-  if (!isNaN(newText[newText.length - 1])) {
+  if (!isNaN(newText[newText.length - 1])) {//get rid of number at the end (like 'spiderman 2') otherwise this api will not find the movie
     newText.pop();
   }
-  if (newText[newText.length - 1] === 'season') {
+  if (newText[newText.length - 1] === 'season') { //in case the iput is ".... season 4"
     newText.pop();
   }
-  val = newText.join(' ').trim();
+  val = newText.join(' ').trim();//adapted value to pass to api
   const config = {
     method: "get",
-    url: `https://www.omdbapi.com/?t=${val}&apikey=e95cd0d1`,
+    url: `https://www.omdbapi.com/?t=${val}&apikey=${process.env.API_O}`,
     headers: {},
   };
 
   return axios(config)
     .then((response) => {
       const similarity = stringSimilarity.compareTwoStrings(response.data["Title"].toLowerCase(), val);
-      if (similarity >= 0.8) {
+      if (similarity >= 0.8) {//since api could give the response for "mcdonalds" that they have movie "mcdonalds in the dark forest"
         return response.data["Type"];
       }
       return "doesn't match";
@@ -80,7 +34,6 @@ async function isMovie(text) {
       console.log(error);
     });
 }
-//isMovie('jumanji');
 
 async function isCafe(name) {
   const config = {
@@ -101,7 +54,6 @@ async function isCafe(name) {
       console.log(error);
     });
 }
-//isCafe('wendys');
 
 async function isProduct(input) {
   const config = {
@@ -109,17 +61,19 @@ async function isProduct(input) {
     url: `https://api.wolframalpha.com/v2/query?input=${input}&format=plaintext&output=JSON&appid=${process.env.API_W}`,
     headers: {},
   };
-
+  // let start = new Date().getTime();
   return axios(config)
     .then((response) => {
       //console.log(response["data"]["queryresult"]["datatypes"]);
+      // let end = new Date().getTime();
+      // let time = end - start;
+      // console.log('Execution time: ' + time);
       return response["data"]["queryresult"]["datatypes"];
     })
     .catch((error) => {
       console.log(error);
     });
 }
-//isProduct('milk');
 
 async function isBook(input) {
   const config = {
@@ -136,7 +90,6 @@ async function isBook(input) {
       console.log(error);
     });
 }
-//isBook('War and peace');
 
 module.exports = {
   isBook,
