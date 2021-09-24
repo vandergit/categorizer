@@ -1,5 +1,7 @@
 Smart ToDo List
 ===============
+## Screenshots & Multimedia
+!["Video of functionality"](https://github.com/Josebautista10/categorizer/public/images/demo.gif)
 
 ## Project Setup
 
@@ -45,7 +47,4 @@ The following steps are neccesary to run the app.
 - string-similarity 4.0.4
 - nodemon 2.0.12
 
-## Screenshots & Multimedia
 
-![]()
-![]()
