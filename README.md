@@ -1,8 +1,7 @@
 Smart ToDo List
 ===============
 ## Screenshots & Multimedia
-!["Video of functionality"](https://github.com/Josebautista10/categorizer/public/images/demo.gif)
-
+!["Video of functionality"](https://github.com/Josebautista10/categorizer/blob/master/public/images/demo.gif)
 ## Project Setup
 
 The following steps are neccesary to run the app.
