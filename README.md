@@ -15,9 +15,10 @@ The following steps are neccesary to run the app.
   - database: `midterm`
 4. Load the schema and seeds files with `npm run db:reset`
 5. Install dependencies: `npm i`
-6. Add your API keys to .env file (`API_G=`your key for google api
-                                   `API_W=`your key for wolframalpha api
-                                   `API_O=`your key for obdb api)
+6. Add your API keys to .env file
+  - `API_G=`your key for google api
+  - `API_W=`your key for wolframalpha api
+  - `API_O=`your key for obdb api
 7. Run the server: `npm run local`
 8. Visit `http://localhost:8080/`
 
@@ -44,7 +45,7 @@ The following steps are neccesary to run the app.
 - string-similarity 4.0.4
 - nodemon 2.0.12
 
-## Screenshots & multimedia
+## Screenshots & Multimedia
 
 ![]()
 ![]()
