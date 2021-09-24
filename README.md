@@ -5,25 +5,25 @@ Smart ToDo List
 
 The following steps are neccesary to run the app.
 
-1. Clone your copy of the repo to your dev machine
-2. Create the DB and DB Roles
-  - CREATE ROLE labber WITH LOGIN password 'labber';
-  - CREATE DATABASE midterm OWNER labber;
+1. Fork and clone your copy of the repo to your dev machine
+2. Create the DB roles and the DB
+  - `CREATE ROLE labber WITH LOGIN password 'labber';`
+  - `CREATE DATABASE midterm OWNER labber;`
 3. Create the `.env` file and update it with your local information
   - username: `labber` 
   - password: `labber` 
   - database: `midterm`
 4. Load the schema and seeds files with `npm run db:reset`
 5. Install dependencies: `npm i`
-6. Add your API keys to .env file (API_G=your key for google api
-                                   API_W=your key for wolframalpha api
-                                   API_O=your key for obdb api)
+6. Add your API keys to .env file (`API_G=`your key for google api
+                                   `API_W=`your key for wolframalpha api
+                                   `API_O=`your key for obdb api)
 7. Run the server: `npm run local`
 8. Visit `http://localhost:8080/`
 
 ## Warnings & Tips
 
-- This is a prototype
+- This is a `prototype`
 - Have fun!
 
 ## Dependencies
